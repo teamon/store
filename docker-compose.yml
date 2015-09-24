@@ -1,0 +1,12 @@
+web:
+  build: .
+  ports:
+    - "3001:3000"
+  links:
+    - redis
+  environment:
+    PORT: 3000
+    RACK_ENV: production
+    REDIS_URL: redis://redis:6379/0/
+redis:
+  image: redis
